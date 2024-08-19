@@ -7,3 +7,18 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+puts "Deleting any existing restaurants..."
+Service.destroy_all
+
+Service.create!(name: "Stuff your fat face",
+  category: "Fried Chicken",
+)
+
+Service.create!(name: "Oh look! Food!",
+  category: "Chinese",
+)
+
+
+Service.create!(name: "Bob's Burgers",
+  category: "Burgers",
+)
