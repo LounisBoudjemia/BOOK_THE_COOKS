@@ -5,6 +5,7 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    @user = User.new(last_name: "Schuch", first_name: "Frida")
   end
 
   def new
