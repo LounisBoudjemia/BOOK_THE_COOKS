@@ -3,12 +3,13 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @user = current_user
     @service = Service.find(params[:service_id])
   end
 
   def create
+    @service = Service.find(params[:service_id])
     @booking = current_user.bookings.build(booking_params)
+    @booking.service = @service
     if @booking.save
       redirect_to @booking, notice: 'Booking was successfully created.'
     else
@@ -19,6 +20,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:name, :service_id)
+    params.require(:booking).permit(:name)
   end
 end
