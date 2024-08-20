@@ -7,8 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-puts "Deleting any existing restaurants..."
+puts "Deleting any existing Bookings..."
+Booking.destroy_all
+puts "Deleting any existing Services..."
 Service.destroy_all
+puts "Deleting any existing Users..."
 User.destroy_all
 
 frida = User.create!(first_name: "Frida",
@@ -18,21 +21,11 @@ frida = User.create!(first_name: "Frida",
   email: "hireme@bookthecooks.com"
 )
 
-Service.create!(name: "Schnitzel in your face",
-  category: "German",
-  user: frida
-)
-
 lounis = User.create!(first_name: "Lounis",
   last_name: "Boudjemia",
   username: "TheLounis",
   password:"lounis",
   email: "lounisforhire@bookthecooks.com"
-)
-
-Service.create!(name: "Good food for you",
-  category: "French",
-  user: lounis
 )
 
 arnold = User.create!(first_name: "Arnold",
@@ -42,7 +35,43 @@ arnold = User.create!(first_name: "Arnold",
   email: "getothechoppanow@predator.com"
 )
 
-Service.create!(name: "Stuff your fat face",
+schnitzel = Service.create!(name: "Schnitzel in your face",
+  category: "German",
+  user: frida
+)
+
+good = Service.create!(name: "Good food for you",
+  category: "French",
+  user: lounis
+)
+
+stuff = Service.create!(name: "Stuff your fat face",
   category: "Fried Chicken",
   user: arnold
+)
+
+yummy = Service.create!(name: "Yummy",
+  category: "Chopped Stuff",
+  user: arnold
+)
+
+Booking.create!(
+  name: "Birthday",
+  service_id: stuff.id,
+  user_id: frida.id,
+  date: Date.today
+)
+
+Booking.create!(
+  name: "Party",
+  service_id: stuff.id,
+  user_id: lounis.id,
+  date: Date.yesterday
+)
+
+Booking.create!(
+  name: "Convention",
+  service_id: schnitzel.id,
+  user_id: arnold.id,
+  date: Date.yesterday
 )
