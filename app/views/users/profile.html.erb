@@ -5,17 +5,19 @@
   </div>
   <div id="bookings">
     <div id="my-bookings">
-      <% @my_booking.each do |booking| %>
+      <% @my_bookings.each do |booking| %>
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title"><%= booking.name %></h5>
             <p class="card-text"><%= booking.date %></p>
+            <% service = Service.find_by id: booking.service_id %>
+            <p class="card-text"><%= service.name %></p>
           </div>
         </div>
       <% end %>
     </div>
-    <div id="booked">
-
+    <div id="my_gigs">
+      
     </div>
   </div>
 </div>
