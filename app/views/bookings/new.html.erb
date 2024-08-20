@@ -1,0 +1,8 @@
+<h1>Make a new Booking</h1>
+
+<div>
+  <%= simple_form_for [@service, @booking] do |f| %>
+    <%= f.input :name, placeholder: "Write a name" %>
+    <%= f.submit class: "btn btn-flat" %>
+  <% end %>
+</div>
