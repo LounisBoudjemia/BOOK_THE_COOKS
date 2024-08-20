@@ -14,12 +14,18 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
-    @service = Service.save
+    @user = current_user
+    @service.user = @user
+    if @service.save
+      redirect_to @service, notice: "Let's get cooking!"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
 
   def service_params
-    params.require(:service).permit(:name, :category)
+    params.require(:service).permit(:name, :category, :description)
   end
 end
