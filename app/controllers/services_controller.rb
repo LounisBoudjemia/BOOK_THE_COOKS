@@ -1,10 +1,11 @@
 class ServicesController < ApplicationController
+  before_action :set_service, only: [:show, :edit, :update, :destroy]
   def index
     @services = Service.all
   end
 
   def show
-    @service = Service.find(params[:id])
+   # @service = Service.find(params[:id])
     @user = User.new(last_name: "Schuch", first_name: "Frida")
   end
 
@@ -24,18 +25,18 @@ class ServicesController < ApplicationController
   end
 
   def edit
-    @service = Service.find(params[:id])
+   # @service = Service.find(params[:id])
   end
 
   def update
-    @service = Service.find(params[:id])
+   # @service = Service.find(params[:id])
     if @service.update(service_params)
       redirect_to @service, notice: 'You updated your Service successfully.'
     else
-      render :edit
+      render :show
     end
   end
-  
+
   def destroy
     @service = Service.find(params[:id])
     @service.destroy
@@ -45,6 +46,10 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:name, :category, :description)
+    params.require(:service).permit(:name, :category, :description, :photo)
+  end
+
+  def set_service
+    @service = Service.find(params[:id])
   end
 end
