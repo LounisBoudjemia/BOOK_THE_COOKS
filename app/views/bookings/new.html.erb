@@ -3,6 +3,10 @@
 <div>
   <%= simple_form_for [@service, @booking] do |f| %>
     <%= f.input :name, placeholder: "Write a name" %>
-    <%= f.submit class: "btn btn-flat" %>
+    <%= f.submit class: "btn btn-success" %>
   <% end %>
+</div>
+
+<div id="links">
+  <%= link_to "Cancel", service_path(@service), class: "btn btn-secondary" %>
 </div>
