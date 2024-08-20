@@ -8,19 +8,19 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts "Deleting any existing restaurants..."
-User.destroy_all
 Service.destroy_all
+User.destroy_all
 
 frida = User.create!(first_name: "Frida",
   last_name: "Schuh",
   username: "FridaDaCook",
-  password:"123",
+  password:"123456",
   email: "hireme@bookthecooks.com"
 )
 
 Service.create!(name: "Schnitzel in your face",
   category: "German",
-  user: frida.id
+  user: frida
 )
 
 lounis = User.create!(first_name: "Lounis",
@@ -32,7 +32,7 @@ lounis = User.create!(first_name: "Lounis",
 
 Service.create!(name: "Good food for you",
   category: "French",
-  user: lounis.id
+  user: lounis
 )
 
 arnold = User.create!(first_name: "Arnold",
@@ -44,5 +44,5 @@ arnold = User.create!(first_name: "Arnold",
 
 Service.create!(name: "Stuff your fat face",
   category: "Fried Chicken",
-  user: arnold.id
+  user: arnold
 )
