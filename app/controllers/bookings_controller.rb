@@ -3,6 +3,8 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @user = current_user
+    @service = Service.find(params[:service_id])
   end
 
   def create
