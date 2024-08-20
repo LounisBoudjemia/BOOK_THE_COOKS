@@ -5,7 +5,6 @@ class ServicesController < ApplicationController
   end
 
   def home
-    
   end
 
   def show
