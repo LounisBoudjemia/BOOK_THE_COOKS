@@ -12,4 +12,11 @@
 <% end %>
 
 
-<%= link_to "Delete service", service_path(@service), data: { turbo_method: :delete } %>
+<br>
+<div>
+  <%= link_to "Delete service", service_path(@service), data: { turbo_method: :delete } %>
+</div>
+<br>
+<div>
+  <%= link_to "New Booking", new_service_booking_path(@service), class: "btn btn-success" %>
+</div>
