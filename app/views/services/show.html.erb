@@ -10,6 +10,15 @@
   <%= f.input :rating %>
   <%= f.submit "Leave a rating", class: "btn btn-primary" %>
 <% end %>
+<br>
 
+<%= link_to "Edit service", edit_service_path(@service)%>
 
-<%= link_to "Delete service", service_path(@service), data: { turbo_method: :delete } %>
+<br>
+<div>
+  <%= link_to "Delete service", service_path(@service), data: { turbo_method: :delete } %>
+</div>
+<br>
+<div>
+  <%= link_to "New Booking", new_service_booking_path(@service), class: "btn btn-success" %>
+</div>
