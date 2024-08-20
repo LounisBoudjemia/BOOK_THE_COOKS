@@ -1,7 +1,15 @@
 <h1>Checkout our offers</h1>
 
-<ul>
-  <% @services.each do |service| %>
-  <li><%= link_to service.name, service_path(service) %></li>
-  <% end %>
-</ul>
+<%# <div class="card"> %>
+  <ul style="list-style-type: none;">
+    <div class="card-container">
+    <% @services.each do |service| %>
+    <li class="card-home">
+      <p class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></p>
+      </br>
+      <p class="card-text">Category: <%= service.category %></p>
+    </li>
+    <% end %>
+    </div>
+  </ul>
+<%# </div> %>
