@@ -1,6 +1,15 @@
 <h1><%= @service.name %></h1>
 <p>Category: <%= @service.category %></p>
+<p><%= @service.description %></p>
 <p><%= @service.rating %></p>
 <br>
 <p>by: <%= @user.first_name%> <%= @user.last_name%></p>
-<p><%= @service.description %></p>
+
+
+<%= simple_form_for [@service] do |f| %>
+  <%= f.input :rating %>
+  <%= f.submit "Leave a rating", class: "btn btn-primary" %>
+<% end %>
+
+
+<%= link_to "Delete service", service_path(@service), data: { turbo_method: :delete } %>
