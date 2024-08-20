@@ -32,10 +32,10 @@ class ServicesController < ApplicationController
     if @service.update(service_params)
       redirect_to @service, notice: 'You updated your Service successfully.'
     else
-      render :edit
+      render :show
     end
   end
-  
+
   def destroy
     @service = Service.find(params[:id])
     @service.destroy
