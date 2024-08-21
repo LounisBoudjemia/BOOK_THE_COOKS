@@ -70,8 +70,15 @@ Booking.create!(
 )
 
 Booking.create!(
-  name: "Convention",
+  name: "Gun Convention",
   service_id: schnitzel.id,
+  user_id: arnold.id,
+  date: Date.yesterday
+)
+
+Booking.create!(
+  name: "Robot Party",
+  service_id: good.id,
   user_id: arnold.id,
   date: Date.yesterday
 )
