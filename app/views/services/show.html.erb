@@ -1,4 +1,7 @@
 <h1><%= @service.name %></h1>
+  <% if @service.photo.attached?%>
+    <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end  %>
 <p>Category: <%= @service.category %></p>
 <p><%= @service.description %></p>
 <p><%= @service.rating %></p>
