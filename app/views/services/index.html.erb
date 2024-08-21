@@ -1,6 +1,6 @@
 
 
-<h1>Checkout our offers</h1>
+<h1>Checkout all offers</h1>
 
 <%# <div class="card"> %>
   <ul style="list-style-type: none;">
@@ -9,7 +9,14 @@
     <li class="card-home">
       <p class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></p>
       </br>
+
+      <%# here should the image go %>
+
       <p class="card-text">Category: <%= service.category %></p>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "profile-pic" %>
+      <%= User.name %>
+      <p class="card-text"><%= truncate(service.description, length: 200) %></p>
+      <%= link_to 'see more...', service_path(service), class: "btn btn-primary mt-auto", style: "border-radius: 16px;" %>
     </li>
     <% end %>
     </div>
