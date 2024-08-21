@@ -3,51 +3,64 @@
   <div id="header">
     <h1><%= @user.username %></h1>
   </div>
-  <div id="bookings">
+  <div id="bookings" class="d-flex justify-content-center">
+    <!-- BOOKINGS -->
     <div id="my-bookings">
-      <div>
+      <div class="d-flex justify-content-center">
         <h2>My Bookings</h2>
       </div>
       <div id="my-bookings">
         <% @my_bookings.each do |booking| %>
-          <div class="card" style="width: 18rem;">
+          <div class="card m-3" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title"><%= booking.name %></h5>
-              <p class="card-text"><%= booking.date %></p>
-              <% service = Service.find_by id: booking.service_id %>
-              <p class="card-text"><%= service.name %></p>
-              <%= link_to "Delete",
-                booking_path(booking),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-              %>
+              <div class="d-flex justify-content-center">
+                <h5 class="card-title"><%= booking.name %></h5>
+              </div>
+              <div>
+                <p class="card-text"><%= booking.date %></p>
+                <% service = Service.find_by id: booking.service_id %>
+                <p class="card-text"><%= service.name %></p>
+                <%= link_to "Delete",
+                  booking_path(booking),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                %>
+              </div>
             </div>
           </div>
         <% end %>
       </div>
     </div>
+    <!-- SERVICES -->
     <div id="my_services">
-      <div>
+      <div class="d-flex justify-content-center">
         <h2>My Services</h2>
       </div>
       <div class="my-services-cards">
         <% @my_services.each do |service| %>
-          <div class="card" style="width: 18rem;">
+          <div class="card m-3" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title"><%= service.name %></h5>
+              <div class="d-flex justify-content-center">
+                <h5 class="card-title"><%= service.name %></h5>
+              </div>
+              <div></div>
             </div>
           </div>
         <% end %>
       </div>
     </div>
+    <!-- GIGS -->
     <div id="my_gigs">
-      <div>
+      <div class="d-flex justify-content-center">
         <h2>My Gigs</h2>
       </div>
       <div id="gig-cards">
         <% @my_gigs.each do |gig| %>
-          <div class="card" style="width: 18rem;">
+          <div class="card m-3" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title"><%= gig.name %></h5>
+              <div class="d-flex justify-content-center">
+                <h5 class="card-title"><%= gig.name %></h5>
+              </div>
+              <div></div>
             </div>
           </div>
         <% end %>
