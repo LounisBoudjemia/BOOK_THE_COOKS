@@ -8,8 +8,7 @@ class ServicesController < ApplicationController
   end
 
   def show
-   # @service = Service.find(params[:id])
-    @user = User.new(last_name: "Schuch", first_name: "Frida")
+    @user = User.find_by(id: @service.user_id)
   end
 
   def new
@@ -28,11 +27,11 @@ class ServicesController < ApplicationController
   end
 
   def edit
-   # @service = Service.find(params[:id])
+    # @service = Service.find(params[:id])
   end
 
   def update
-   # @service = Service.find(params[:id])
+    # @service = Service.find(params[:id])
     if @service.update(service_params)
       redirect_to @service, notice: 'You updated your Service successfully.'
     else
