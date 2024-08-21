@@ -1,6 +1,6 @@
 
 <div id="show-body">
-  <div id="show-container" class="container">
+  <div id="show-container" class="container w-50 p-3">
 
     <div id="show-header">
       <h1><%= @service.name %></h1>
@@ -14,7 +14,7 @@
     </div>
 
     <div id="show-details">
-      <div id="details-container">
+      <div id="details-container" class="d-flex justify-content-between">
         <div id="details-info">
           <p>Category: <%= @service.category %></p>
           <p><%= @service.description %></p>
@@ -33,14 +33,15 @@
     </div>
 
 
-    <div id="show-links">
+    <div id="show-links" class="mt-5">
       <%# show delete and edit only, if the current user is the owner of the service %>
       <% if current_user.id == @service.user_id%>
-        <div id="chef-links">
-          <div id="delete-service">
+        <h3>Manage your Service</h3>
+        <div id="chef-links" class="d-flex mt-3">
+          <div id="delete-service" class="">
             <%= link_to "Edit service", edit_service_path(@service), class: "btn btn-secondary"%>
           </div>
-          <div id="edit-service">
+          <div id="edit-service" class="mx-3">
             <%= link_to "Delete service", service_path(@service), data: { turbo_method: :delete }, class: "btn btn-primary" %>
           </div>
         </div>
