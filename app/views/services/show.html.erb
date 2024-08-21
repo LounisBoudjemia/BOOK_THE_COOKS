@@ -1,27 +1,51 @@
-<h1><%= @service.name %></h1>
-  <% if @service.photo.attached?%>
-    <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
-  <% end  %>
-<p>Category: <%= @service.category %></p>
-<p><%= @service.description %></p>
-<p><%= @service.rating %></p>
-<br>
-<p>by: <%= @user.first_name%> <%= @user.last_name%></p>
+
+<div id="show-body">
+  <div id="show-container" class="container w-50 p-3">
+
+    <div id="show-header">
+      <h1><%= @service.name %></h1>
+      <p>by: <%= @user.first_name%> <%= @user.last_name%></p>
+    </div>
+
+    <div id="show-carousel">
+      <% if @service.photo.attached?%>
+        <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end  %>
+    </div>
+
+    <div id="show-details">
+      <div id="details-container" class="d-flex justify-content-between">
+        <div id="details-info">
+          <p>Category: <%= @service.category %></p>
+          <p><%= @service.description %></p>
+          <p>Rating: <%= @service.rating %></p>
+        </div>
+        <div id="new-booking">
+          <%= link_to "New Booking", new_service_booking_path(@service), class: "btn btn-success" %>
+        </div>
+      </div>
+      <div id="rating-form" class="mt-3 col-1 d-flex">
+        <%= simple_form_for [@service] do |f| %>
+          <%= f.input :rating, label: false %>
+          <%= f.submit "Leave a rating", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
 
 
-<%= simple_form_for [@service] do |f| %>
-  <%= f.input :rating %>
-  <%= f.submit "Leave a rating", class: "btn btn-primary" %>
-<% end %>
-<br>
-
-<%= link_to "Edit service", edit_service_path(@service)%>
-
-<br>
-<div>
-  <%= link_to "Delete service", service_path(@service), data: { turbo_method: :delete }, class: "btn btn-primary" %>
-</div>
-<br>
-<div>
-  <%= link_to "New Booking", new_service_booking_path(@service), class: "btn btn-success" %>
+    <div id="show-links" class="mt-5">
+      <%# show delete and edit only, if the current user is the owner of the service %>
+      <% if current_user.id == @service.user_id%>
+        <h3>Manage your Service</h3>
+        <div id="chef-links" class="d-flex mt-3">
+          <div id="delete-service" class="">
+            <%= link_to "Edit service", edit_service_path(@service), class: "btn btn-secondary"%>
+          </div>
+          <div id="edit-service" class="mx-3">
+            <%= link_to "Delete service", service_path(@service), data: { turbo_method: :delete }, class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -4,13 +4,60 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :category %>
-    <%= f.input :photo, as: :file %>
+    <div class="mb-3" id="name">
+
+      <%= f.input :name,
+      label: "name",
+      class: "form-control",
+      placeholder: "enter your info"%>
+
+    </div>
+
+    <div class="mb-3" id="description">
+
+      <%= f.input :description,
+          label: "description",
+          class: "form-control",
+          placeholder: "what are you doing here?" %>
+
+    </div>
+
+    <div class="mb-3" id="category">
+
+      <%= f.input :category,
+          label: "category",
+          class: "form-control",
+          placeholder: "what's your specialty?"%>
+
+    </div>
+
+    <div class="mb-3" id="photo" >
+
+    <%= f.input :photo, as: :file,
+        class: "form-control",
+        placeholder:"pic or it didn't happen"%>
+
+    </div>
+
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+
+     <div class="mb-3">
+
+    <%= f.button :submit,
+    class: "btn btn-primary",
+    id: "button-form"%>
+
+      </div>
+
+    <div class="mb-3">
+       <%= link_to "Back to all services", services_path, class: "btn btn-info", id: "button-form" %>
+
+    </div>
+
   </div>
+
+
+
 <% end %>
