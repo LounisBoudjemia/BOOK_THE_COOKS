@@ -5,19 +5,49 @@
   </div>
   <div id="bookings">
     <div id="my-bookings">
-      <% @my_bookings.each do |booking| %>
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"><%= booking.name %></h5>
-            <p class="card-text"><%= booking.date %></p>
-            <% service = Service.find_by id: booking.service_id %>
-            <p class="card-text"><%= service.name %></p>
+      <div>
+        <h2>My Bookings</h2>
+      </div>
+      <div id="my-bookings">
+        <% @my_bookings.each do |booking| %>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.name %></h5>
+              <p class="card-text"><%= booking.date %></p>
+              <% service = Service.find_by id: booking.service_id %>
+              <p class="card-text"><%= service.name %></p>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div id="my_services">
+      <div>
+        <h2>My Services</h2>
+      </div>
+      <div class="my-services-cards">
+        <% @my_services.each do |service| %>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= service.name %></h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div id="my_gigs">
-      
+      <div>
+        <h2>My Gigs</h2>
+      </div>
+      <div id="gig-cards">
+        <% @my_gigs.each do |gig| %>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= gig.name %></h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
