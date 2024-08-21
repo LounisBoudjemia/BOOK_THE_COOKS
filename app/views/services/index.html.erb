@@ -8,12 +8,14 @@
     <% @services.each do |service| %>
     <li class="card-home">
       <p class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></p>
-      </br>
+      <br>
 
-      <%# here should the image go %>
+      <% if service.photo.attached?%>
+          <%= cl_image_tag service.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end  %>
 
       <p class="card-text">Category: <%= service.category %></p>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "profile-pic" %>
+
       <%= User.name %>
       <p class="card-text"><%= truncate(service.description, length: 200) %></p>
       <%= link_to 'see more...', service_path(service), class: "btn btn-primary mt-auto", style: "border-radius: 16px;" %>

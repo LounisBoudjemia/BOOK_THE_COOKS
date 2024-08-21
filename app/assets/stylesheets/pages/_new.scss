@@ -1,0 +1,22 @@
+.container-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+#button-form{
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  width: 200px;
+  padding: 12px;
+  margin: 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
