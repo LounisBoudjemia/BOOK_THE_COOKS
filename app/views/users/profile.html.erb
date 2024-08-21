@@ -1,6 +1,6 @@
 
 <div id="body">
-  <div id="header">
+  <div id="username" class="d-flex justify-content-center">
     <h1><%= @user.username %></h1>
   </div>
   <div id="bookings" class="d-flex justify-content-center">
@@ -20,7 +20,7 @@
                 <p class="card-text"><%= booking.date %></p>
                 <% service = Service.find_by id: booking.service_id %>
                 <p class="card-text"><%= service.name %></p>
-                <%= link_to "Delete",
+                <%= link_to "Cancel Booking",
                   booking_path(booking),
                   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
                 %>
@@ -45,6 +45,10 @@
                 </h5>
               </div>
               <div>
+                <p class="card-text"><%= service.category %></p>
+                <p class="card-text"><%= service.rating %></p>
+                <% bookings_for_this_service = Booking.all.select { |booking| booking.service_id == service.id } %>
+                <p class="card-text">Bookings: <%= bookings_for_this_service.length %></p>
               </div>
             </div>
           </div>
@@ -63,7 +67,11 @@
               <div class="d-flex justify-content-center">
                 <h5 class="card-title"><%= gig.name %></h5>
               </div>
-              <div></div>
+              <div>
+                <p class="card-text"><%= gig.date %></p>
+                <% booked_by = User.find_by id: gig.user_id %>
+                <p class="card-text">Booked by: <%= booked_by.username %></p>
+              </div>
             </div>
           </div>
         <% end %>
