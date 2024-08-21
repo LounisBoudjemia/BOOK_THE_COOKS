@@ -16,6 +16,10 @@
               <p class="card-text"><%= booking.date %></p>
               <% service = Service.find_by id: booking.service_id %>
               <p class="card-text"><%= service.name %></p>
+              <%= link_to "Delete",
+                booking_path(booking),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+              %>
             </div>
           </div>
         <% end %>
