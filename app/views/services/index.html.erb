@@ -1,24 +1,28 @@
 <div class="container-fluid mx-auto">
-  <h1 class="text-center">Getting hungry?</h1>
+
+  <h1 class="text-center">Check out what's cooking</h1>
+
       <div class="card-container d-flex justify-content-between ">
         <%# <div class="card" style="width: 30rem;"> %>
        <div class="cards">
+
           <% @services.each do |service| %>
+
           <div class="card">
-              <div class="card-img-top" >  <%= image_tag asset_path("placeholder.jpg") %></div>
+
+              <div class="card-img-top w-100" >  <%= cl_image_tag service.photos[0].key, crop: :fill %></div>
+
                 <div class="card-body w-100">
+
                     <div class="d-flex justify-content-between w-100">
-                      <h5 class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></h5>
-                      <div class="rating"> ★ 5 </div>
+                        <h5 class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></h5>
+                        <div class="rating"> ★ 5 </div>
                     </div>
                     <div class="description d-flex justify-content-center w-100"><%= service.description %></div>
-                    </div>
-                    <%# <div class="description d-flex justify-content-space-between">It's good</div> %>
 
-                  </div>
-                   <% end %>
-                  </div>
-                  </div>
                 </div>
-
+          </div>
+          <% end %>
         </div>
+    </div>
+</div>

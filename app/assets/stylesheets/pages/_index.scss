@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: space-between;
   font-family: Open-sans, sans-serif;
+
 }
 .cards {
   display: grid;
@@ -51,6 +52,7 @@
   font-family: montserrat;
   font-weight: bold;
   font-size: 14px;
+  border-radius: 10px;
 }
 
 .description {
@@ -58,4 +60,11 @@
   font-family: montserrat;
   font-weight: bold;
   font-size: 12px;
+}
+
+.text-center {
+  padding: 20px;
+  font-family: montserrat;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
