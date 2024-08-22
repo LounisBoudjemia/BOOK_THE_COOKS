@@ -11,74 +11,73 @@ puts "Deleting any existing Bookings..."
 Booking.destroy_all
 puts "Deleting any existing Services..."
 Service.destroy_all
-puts "Deleting any existing Users..."
-User.destroy_all
 
-frida = User.create!(first_name: "Frida",
-  last_name: "Schuh",
-  username: "FridaDaCook",
-  password:"123456",
-  email: "hireme@bookthecooks.com"
-)
 
-lounis = User.create!(first_name: "Lounis",
-  last_name: "Boudjemia",
-  username: "TheLounis",
-  password:"lounis",
-  email: "lounisforhire@bookthecooks.com"
-)
+# frida = User.create!(first_name: "Frida",
+#   last_name: "Schuh",
+#   username: "FridaDaCook",
+#   password:"123456",
+#   email: "hireme@bookthecooks.com"
+# )
 
-arnold = User.create!(first_name: "Arnold",
-  last_name: "Schwarzenegger",
-  username: "TheTerminator",
-  password:"Illbeback",
-  email: "getothechoppanow@predator.com"
-)
+# lounis = User.create!(first_name: "Lounis",
+#   last_name: "Boudjemia",
+#   username: "TheLounis",
+#   password:"lounis",
+#   email: "lounisforhire@bookthecooks.com"
+# )
 
-schnitzel = Service.create!(name: "Schnitzel in your face",
-  category: "German",
-  user: frida
-)
+# arnold = User.create!(first_name: "Arnold",
+#   last_name: "Schwarzenegger",
+#   username: "TheTerminator",
+#   password:"Illbeback",
+#   email: "getothechoppanow@predator.com"
+# )
 
-good = Service.create!(name: "Good food for you",
-  category: "French",
-  user: lounis
-)
+# schnitzel = Service.create!(name: "Schnitzel in your face",
+#   category: "German",
+#   user: frida
+# )
 
-stuff = Service.create!(name: "Stuff your fat face",
-  category: "Fried Chicken",
-  user: arnold
-)
+# good = Service.create!(name: "Good food for you",
+#   category: "French",
+#   user: lounis
+# )
 
-yummy = Service.create!(name: "Yummy",
-  category: "Chopped Stuff",
-  user: arnold
-)
+# stuff = Service.create!(name: "Stuff your fat face",
+#   category: "Fried Chicken",
+#   user: arnold
+# )
 
-Booking.create!(
-  name: "Birthday",
-  service_id: stuff.id,
-  user_id: frida.id,
-  date: Date.today
-)
+# yummy = Service.create!(name: "Yummy",
+#   category: "Chopped Stuff",
+#   user: arnold
+# )
 
-Booking.create!(
-  name: "Party",
-  service_id: stuff.id,
-  user_id: lounis.id,
-  date: Date.yesterday
-)
+# Booking.create!(
+#   name: "Birthday",
+#   service_id: stuff.id,
+#   user_id: frida.id,
+#   date: Date.today
+# )
 
-Booking.create!(
-  name: "Gun Convention",
-  service_id: schnitzel.id,
-  user_id: arnold.id,
-  date: Date.yesterday
-)
+# Booking.create!(
+#   name: "Party",
+#   service_id: stuff.id,
+#   user_id: lounis.id,
+#   date: Date.yesterday
+# )
 
-Booking.create!(
-  name: "Robot Party",
-  service_id: good.id,
-  user_id: arnold.id,
-  date: Date.yesterday
-)
+# Booking.create!(
+#   name: "Gun Convention",
+#   service_id: schnitzel.id,
+#   user_id: arnold.id,
+#   date: Date.yesterday
+# )
+
+# Booking.create!(
+#   name: "Robot Party",
+#   service_id: good.id,
+#   user_id: arnold.id,
+#   date: Date.yesterday
+# )

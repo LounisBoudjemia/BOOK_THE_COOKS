@@ -1,31 +1,20 @@
 <div class="container-fluid mx-auto">
-  <div class="cards">
-  <h1 class="text-center">Checkout all offers</h1>
-    <ul style="list-style-type: none;">
+  <h1 class="text-center">Getting hungry?</h1>
       <div class="card-container">
         <%# <div class="card" style="width: 30rem;"> %>
+       <div class="cards">
           <% @services.each do |service| %>
-            <li class="card card-home">
-              <%= image_tag asset_path("placeholder.jpg") %>
-              <div class="card-body">
-                <h5 class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></h5>
-                <div class="user-info d-flex justify-content-around">
-                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "profile-pic" %>
-                  
-                  <% if service.photo.attached?%>
-                    <%= cl_image_tag service.photo.key, height: 300, width: 400, crop: :fill %>
-                  <% end  %>
-               
-                  <h3> ⭐️⭐️⭐️⭐️⭐️</h3>
-                  <h3><%= User.name %></h3>
+          <div class="card">
+              <div class="card-img-top" >  <%= image_tag asset_path("placeholder.jpg") %></div>
+                <div class="card-body w-100">
+                    <div class="d-flex justify-content-between w-100">
+                      <h5 class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></h5>
+                      <div class="rating">5</div>
+                    </div>
+                    <div class="description d-flex justify-content-space-between">It's good</div>
+                  </div>
+                  </div>
+                  </div>
                 </div>
-                <p class="card-text p-3"><%= truncate(service.description, length: 200) %></p>
-                <%= link_to 'see more...', service_path(service), class: "btn btn-primary mt-auto", style: "border-radius: 16px;" %>
-              </div>
-            </li>
-          <% end %>
-        <%# </div> %>
+            <% end %>
         </div>
-      </ul>
-  </div>
-</div>
