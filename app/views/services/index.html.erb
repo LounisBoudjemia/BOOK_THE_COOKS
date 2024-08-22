@@ -11,11 +11,11 @@
                 <h5 class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></h5>
                 <div class="user-info d-flex justify-content-around">
                   <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "profile-pic" %>
-                  
+
                   <% if service.photo.attached?%>
                     <%= cl_image_tag service.photo.key, height: 300, width: 400, crop: :fill %>
                   <% end  %>
-               
+
                   <h3> ⭐️⭐️⭐️⭐️⭐️</h3>
                   <h3><%= User.name %></h3>
                 </div>
