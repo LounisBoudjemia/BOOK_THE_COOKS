@@ -34,8 +34,9 @@
 
 
     <div id="show-links" class="mt-5">
-      <%# show delete and edit only, if the current user is the owner of the service %>
+      <%# show only, if the user is logged in %>
       <% if current_user.present? %>
+        <%# show delete and edit only, if the current user is the owner of the service %>
         <% if current_user.id == @service.user_id%>
           <h3>Manage your Service</h3>
           <div id="chef-links" class="d-flex mt-3">

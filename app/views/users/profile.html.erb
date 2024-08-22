@@ -3,32 +3,43 @@
   <div id="username" class="d-flex justify-content-center">
     <h1><%= @user.username %></h1>
   </div>
-  <div id="bookings" class="d-flex justify-content-center">
-    <!-- BOOKINGS -->
+  <div id="container-bookings-services" class="d-flex justify-content-center">
     <% if @my_bookings.length > 0 %>
-      <div id="my-bookings">
-        <div class="d-flex justify-content-center">
+    <div id="my-bookings">
+      <div class="d-flex justify-content-center">
           <h2>My Bookings</h2>
-        </div>
-        <div id="my-bookings">
+      </div>
+      <div id="my-bookings-list">
+        <ul>
           <% @my_bookings.each do |booking| %>
-          <div class="card m-3" style="width: 18rem;">
-            <div class="card-body">
-              <div class="d-flex justify-content-center">
-                <h5 class="card-title"><%= booking.name %></h5>
+            <li>
+              <div class="card m-3" style="width: 18rem;">
+                <div class="card-body">
+                  <div class="d-flex justify-content-center">
+                    <h5 class="card-title"><%= booking.name %></h5>
+                  </div>
+                  <div>
+                    <p class="card-text"><%= booking.date %></p>
+                    <% service = Service.find_by id: booking.service_id %>
+                    <p class="card-text"><%= service.name %></p>
+                    <%= link_to "Cancel Booking",
+                      booking_path(booking),
+                      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                    %>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p class="card-text"><%= booking.date %></p>
-                <% service = Service.find_by id: booking.service_id %>
-                <p class="card-text"><%= service.name %></p>
-                <%= link_to "Cancel Booking",
-                  booking_path(booking),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-                %>
-              </div>
-            </div>
-          </div>
+            </li>
           <% end %>
+        </ul>
+      </div>
+    </div>
+    <!-- BOOKINGS -->
+
+
+
+        <div id="my-bookings-cards">
+
         </div>
       </div>
     <% end %>
