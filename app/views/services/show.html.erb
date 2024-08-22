@@ -32,8 +32,8 @@
       </div>
       <div id="rating-form" class="mt-3 col-1 d-flex">
         <%= simple_form_for [@service] do |f| %>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Leave a Rating", input_html: {data: {controller: "star-rating"}} %>
-          <%= f.submit "Leave a rating", class: "btn btn-primary" %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Rate", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"} } %>
+          <%= f.submit "submit rating", class: "d-none" %>
         <% end %>
       </div>
     </div>
