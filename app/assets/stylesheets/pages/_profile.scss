@@ -1,0 +1,57 @@
+#profile {
+  background-color: #3baea0;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);;
+  padding: 20px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+#bookings{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: #e4fff6;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.child {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0;
+  min-height: 0;
+  flex-basis: 0;
+  box-sizing: border-box;
+  color: green;
+}
+
+.card {
+  height: 200px;
+  border-radius: 20px;
+  background-color: #43c2b3;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background-color: #ffd8d8; /* Change background color on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+  transform: translateY(-5px); /* Slightly lift the card on hover */
+}
+
+#cancel-booking-button {
+  background-color: rgb(0, 0, 0);
+  padding: 7px 7px;
+  border-radius: 80px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);;
+}
+
+#cancel-booking-button:hover {
+  background-color: #72d5ff; /* Change background color on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+  transform: translateY(-5px); /* Slightly lift the card on hover */
+}

@@ -1,18 +1,18 @@
 
-<div id="body">
+<div id="profile">
   <div id="username" class="d-flex justify-content-center">
     <h1><%= @user.username %></h1>
   </div>
-  <div id="bookings" class="d-flex justify-content-center">
+  <div id="bookings" class="">
     <!-- BOOKINGS -->
     <% if @my_bookings.length > 0 %>
-      <div id="my-bookings">
+      <div id="my-bookings" class="child">
         <div class="d-flex justify-content-center">
           <h2>My Bookings</h2>
         </div>
         <div id="my-bookings">
           <% @my_bookings.each do |booking| %>
-          <div class="card m-3" style="width: 18rem;">
+          <div class="card m-3" style="">
             <div class="card-body">
               <div class="d-flex justify-content-center">
                 <h5 class="card-title"><%= booking.name %></h5>
@@ -20,11 +20,11 @@
               <div>
                 <p class="card-text"><%= booking.date %></p>
                 <% service = Service.find_by id: booking.service_id %>
-                <p class="card-text"><%= service.name %></p>
-                <%= link_to "Cancel Booking",
+                <p class="card-text" ><%= service.name %></p>
+                <%= link_to "Cancel Booking" ,
                   booking_path(booking),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-                %>
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                  id: "cancel-booking-button"%>
               </div>
             </div>
           </div>
@@ -34,13 +34,13 @@
     <% end %>
     <!-- SERVICES -->
     <% if @my_services.length > 0 %>
-      <div id="my_services">
+      <div id="my_services" class="child">
         <div class="d-flex justify-content-center">
           <h2>My Services</h2>
         </div>
         <div class="my-services-cards">
           <% @my_services.each do |service| %>
-            <div class="card m-3" style="width: 18rem;">
+            <div class="card m-3" style="">
               <div class="card-body">
                 <div class="d-flex justify-content-center">
                   <h5 class="card-title">
@@ -61,13 +61,13 @@
     <% end %>
     <!-- GIGS -->
     <% if @my_gigs.length > 0 %>
-      <div id="my_gigs">
+      <div id="my_gigs" class="child">
         <div class="d-flex justify-content-center">
           <h2>My Gigs</h2>
         </div>
         <div id="gig-cards">
           <% @my_gigs.each do |gig| %>
-            <div class="card m-3" style="width: 18rem;">
+            <div class="card m-3" style="">
               <div class="card-body">
                 <div class="d-flex justify-content-center">
                   <h5 class="card-title"><%= gig.name %></h5>
