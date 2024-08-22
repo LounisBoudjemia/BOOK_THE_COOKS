@@ -106,14 +106,16 @@ Booking.create!(
   name: "Pizza Night",
   service_id: pizza.id,
   user_id: frida.id,
-  date: Date.today
+  date: Date.today,
+  address: "Karl-Marx-Str. 1, 12043 Berlin"
   )
 
 Booking.create!(
   name: "Birthday",
   service_id: burger.id,
   user_id: frida.id,
-  date: Date.yesterday
+  date: Date.yesterday,
+  address: "Potsdamer Str. 75, 10785 Berlin"
   )
 
 # Booking from Lounis
@@ -121,14 +123,16 @@ Booking.create!(
   name: "Party",
   service_id: burger.id,
   user_id: lounis.id,
-  date: Date.today
+  date: Date.today,
+  address: "Friedrichstraße 185-190, 10117 Berlin"
   )
 
 Booking.create!(
   name: "Party",
   service_id: pizza.id,
   user_id: lounis.id,
-  date: Date.yesterday
+  date: Date.yesterday,
+  address: "Revaler Str. 99, 10245 Berlin"
   )
 
 # Booking from Florian
@@ -136,28 +140,31 @@ Booking.create!(
   name: "Gun Convention",
   service_id: schnitzel.id,
   user_id: florian.id,
-  date: Date.yesterday
-)
+  date: Date.yesterday,
+  address: "Leonhardtstraße 6, 14057 Berlin
 
 Booking.create!(
   name: "Robot Party",
   service_id: frog.id,
   user_id: florian.id,
-  date: Date.yesterday
+  date: Date.yesterday,
+  address: "Danneckerstraße 7, 10245 Berlin"
 )
 
 Booking.create!(
   name: "Romantic Dinner",
   service_id: cordon.id,
   user_id: florian.id,
-  date: Date.yesterday - 20
+  date: Date.yesterday - 20,
+  address: "Carl-Herz-Ufer 5, 10961 Berlin"
 )
 
 Booking.create!(
   name: "Lovely Lunch",
   service_id: currywurst.id,
   user_id: florian.id,
-  date: Date.yesterday - 40
+  date: Date.yesterday - 40,
+  address: "Hindenburgdamm 30, 12203 Berlin"
 )
 
 puts "Created Bookings"
