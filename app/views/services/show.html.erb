@@ -1,5 +1,6 @@
 
 <div id="show-body">
+
   <div id="show-container" class="container w-50 p-3">
 
     <div id="show-header">
@@ -7,12 +8,14 @@
       <p>by: <%= @user.first_name%> <%= @user.last_name%></p>
     </div>
 
-    <div id="show-carousel">
-      <% if @service.photo.attached?%>
-        <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="parent">
+      <% if @service.photos.attached?%>
+        <% @service.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, crop: :fill %>
+        <% end %>
       <% end  %>
     </div>
-
+    
     <div id="show-details">
       <div id="details-container" class="d-flex justify-content-between">
         <div id="details-info">

@@ -12,9 +12,13 @@
                 <div class="user-info d-flex justify-content-around">
                   <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "profile-pic" %>
 
-                  <% if service.photo.attached?%>
-                    <%= cl_image_tag service.photo.key, height: 300, width: 400, crop: :fill %>
+                  <% if service.photos.attached?%>
+                    <% service.photos.each do |photo| %>
+                      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+                    <% end %>
                   <% end  %>
+
+
 
                   <h3> ⭐️⭐️⭐️⭐️⭐️</h3>
                   <h3><%= User.name %></h3>

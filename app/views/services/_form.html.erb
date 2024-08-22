@@ -33,7 +33,7 @@
 
     <div class="mb-3" id="photo" >
 
-    <%= f.input :photo, as: :file,
+    <%= f.input :photos, as: :file, input_html: { multiple: true },
         class: "form-control",
         placeholder:"pic or it didn't happen"%>
 
