@@ -45,14 +45,16 @@ schnitzel = Service.create!(
   name: "Schnitzel Night",
   category: "German",
   user: frida,
-  rating: 5
+  rating: 5,
+  description: "Enjoy a night of Schnitzel with your friends!"
   )
 
 currywurst = Service.create!(
   name: "Currywurst",
   category: "German",
   user: frida,
-  rating: 4
+  rating: 4,
+  description: "Enjoy a wonderful Currywurst original!"
   )
 
 # service from Lounis
@@ -60,14 +62,16 @@ cordon = Service.create!(
   name: "Cordon Bleu",
   category: "French",
   user: lounis,
-  rating: 4
+  rating: 4,
+  description: "The best Cordon Bleu in town!"
   )
 
 frog = Service.create!(
   name: "Frog Legs",
   category: "French",
   user: lounis,
-  rating: 5
+  rating: 5,
+  description: "You have never tasted anything like this!"
   )
 
 # service from Florian
@@ -75,21 +79,24 @@ sushi = Service.create!(
   name: "Japanese Sushi",
   category: "Japanese",
   user: florian,
-  rating: 3
+  rating: 3,
+  description: "Real japanese Sushi! Expect an explosion of flavors!"
 )
 
 pizza = Service.create!(
   name: "Italian Pizza",
   category: "Italian",
   user: florian,
-  rating: 2
+  rating: 2,
+  description: "Nothing beats a good Pizza! 🍕"
 )
 
 burger = Service.create!(
   name: "Foodtruck Burgers",
   category: "American",
   user: florian,
-  rating: 4
+  rating: 4,
+  description: "This Foodtruck serves the best Burgers that you have ever tasted!"
 )
 
 puts "Created Services"
