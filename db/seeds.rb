@@ -107,7 +107,8 @@ Booking.create!(
   service_id: pizza.id,
   user_id: frida.id,
   date: Date.today,
-  address: "Karl-Marx-Str. 1, 12043 Berlin"
+  address: "Karl-Marx-Str. 1, 12043 Berlin",
+  rating: 3
   )
 
 Booking.create!(
@@ -115,7 +116,8 @@ Booking.create!(
   service_id: burger.id,
   user_id: frida.id,
   date: Date.yesterday,
-  address: "Potsdamer Str. 75, 10785 Berlin"
+  address: "Potsdamer Str. 75, 10785 Berlin",
+  rating: 5
   )
 
 # Booking from Lounis
@@ -124,7 +126,8 @@ Booking.create!(
   service_id: burger.id,
   user_id: lounis.id,
   date: Date.today,
-  address: "Friedrichstraße 185-190, 10117 Berlin"
+  address: "Friedrichstraße 185-190, 10117 Berlin",
+  rating: 2
   )
 
 Booking.create!(
@@ -132,7 +135,8 @@ Booking.create!(
   service_id: pizza.id,
   user_id: lounis.id,
   date: Date.yesterday,
-  address: "Revaler Str. 99, 10245 Berlin"
+  address: "Revaler Str. 99, 10245 Berlin",
+  rating: 3
   )
 
 # Booking from Florian
@@ -141,7 +145,8 @@ Booking.create!(
   service_id: schnitzel.id,
   user_id: florian.id,
   date: Date.yesterday,
-  address: "Leonhardtstraße 6, 14057 Berlin"
+  address: "Leonhardtstraße 6, 14057 Berlin",
+  rating: 3
 )
 
 Booking.create!(
@@ -149,7 +154,8 @@ Booking.create!(
   service_id: frog.id,
   user_id: florian.id,
   date: Date.yesterday,
-  address: "Danneckerstraße 7, 10245 Berlin"
+  address: "Danneckerstraße 7, 10245 Berlin",
+  rating: 3
 )
 
 Booking.create!(
@@ -157,7 +163,8 @@ Booking.create!(
   service_id: cordon.id,
   user_id: florian.id,
   date: Date.yesterday - 20,
-  address: "Carl-Herz-Ufer 5, 10961 Berlin"
+  address: "Carl-Herz-Ufer 5, 10961 Berlin",
+  rating: 4
 )
 
 Booking.create!(
@@ -165,7 +172,8 @@ Booking.create!(
   service_id: currywurst.id,
   user_id: florian.id,
   date: Date.yesterday - 40,
-  address: "Hindenburgdamm 30, 12203 Berlin"
+  address: "Hindenburgdamm 30, 12203 Berlin",
+  rating: 5
 )
 
 puts "Created Bookings"
