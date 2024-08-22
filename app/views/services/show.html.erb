@@ -38,12 +38,11 @@
       </div>
     </div>
 
-    <br>
-    <div class="d-flex justify-content-center">
-    <div class="card bg-white shadow p-3 mb-5 bg-body rounded-3" style="width: 30rem;">
-      <%# show delete and edit only, if the current user is the owner of the service %>
-      <div class="card-body">
+
+    <div id="show-links" class="mt-5">
+      <%# show only, if the user is logged in %>
       <% if current_user.present? %>
+        <%# show delete and edit only, if the current user is the owner of the service %>
         <% if current_user.id == @service.user_id%>
           <h3 class="card-title">Manage your Service</h3>
           <div id="chef-links" class="d-flex mt-3">
