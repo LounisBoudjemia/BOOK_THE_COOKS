@@ -11,73 +11,147 @@ puts "Deleting any existing Bookings..."
 Booking.destroy_all
 puts "Deleting any existing Services..."
 Service.destroy_all
+puts "Deleting any existing Users..."
+User.destroy_all
 
+frida = User.create!(
+  first_name: "Frida",
+  last_name: "Schuh",
+  username: "FridaDaCook",
+  password:"123456",
+  email: "hireme@bookthecooks.com"
+)
 
-# frida = User.create!(first_name: "Frida",
-#   last_name: "Schuh",
-#   username: "FridaDaCook",
-#   password:"123456",
-#   email: "hireme@bookthecooks.com"
-# )
+lounis = User.create!(
+  first_name: "Lounis",
+  last_name: "Boudjemia",
+  username: "TheLounis",
+  password:"lounis",
+  email: "lounisforhire@bookthecooks.com"
+)
 
-# lounis = User.create!(first_name: "Lounis",
-#   last_name: "Boudjemia",
-#   username: "TheLounis",
-#   password:"lounis",
-#   email: "lounisforhire@bookthecooks.com"
-# )
+florian = User.create!(
+  first_name: "Florian",
+  last_name: "Sitte",
+  username: "StarTyper",
+  password:"123456",
+  email: "email@gmail.com"
+)
 
-# arnold = User.create!(first_name: "Arnold",
-#   last_name: "Schwarzenegger",
-#   username: "TheTerminator",
-#   password:"Illbeback",
-#   email: "getothechoppanow@predator.com"
-# )
+puts "Created Users"
 
-# schnitzel = Service.create!(name: "Schnitzel in your face",
-#   category: "German",
-#   user: frida
-# )
+# service from Frida
+schnitzel = Service.create!(
+  name: "Schnitzel Night",
+  category: "German",
+  user: frida,
+  rating: 5
+  )
 
-# good = Service.create!(name: "Good food for you",
-#   category: "French",
-#   user: lounis
-# )
+currywurst = Service.create!(
+  name: "Currywurst",
+  category: "German",
+  user: frida,
+  rating: 4
+  )
 
-# stuff = Service.create!(name: "Stuff your fat face",
-#   category: "Fried Chicken",
-#   user: arnold
-# )
+# service from Lounis
+cordon = Service.create!(
+  name: "Cordon Bleu",
+  category: "French",
+  user: lounis,
+  rating: 4
+  )
 
-# yummy = Service.create!(name: "Yummy",
-#   category: "Chopped Stuff",
-#   user: arnold
-# )
+frog = Service.create!(
+  name: "Frog Legs",
+  category: "French",
+  user: lounis,
+  rating: 5
+  )
 
-# Booking.create!(
-#   name: "Birthday",
-#   service_id: stuff.id,
-#   user_id: frida.id,
-#   date: Date.today
-# )
+# service from Florian
+sushi = Service.create!(
+  name: "Japanese Sushi",
+  category: "Japanese",
+  user: florian,
+  rating: 3
+)
 
-# Booking.create!(
-#   name: "Party",
-#   service_id: stuff.id,
-#   user_id: lounis.id,
-#   date: Date.yesterday
-# )
+pizza = Service.create!(
+  name: "Italian Pizza",
+  category: "Italian",
+  user: florian,
+  rating: 2
+)
 
-# Booking.create!(
-#   name: "Gun Convention",
-#   service_id: schnitzel.id,
-#   user_id: arnold.id,
-#   date: Date.yesterday
-# )
+burger = Service.create!(
+  name: "Foodtruck Burgers",
+  category: "American",
+  user: florian,
+  rating: 4
+)
 
-# Booking.create!(
-#   name: "Robot Party",
-#   service_id: good.id,
-#   user_id: arnold.id,
-#   date: Date.yesterday
-# )
+puts "Created Services"
+
+# Booking from Frida
+Booking.create!(
+  name: "Pizza Night",
+  service_id: pizza.id,
+  user_id: frida.id,
+  date: Date.today
+  )
+
+Booking.create!(
+  name: "Birthday",
+  service_id: burger.id,
+  user_id: frida.id,
+  date: Date.yesterday
+  )
+
+# Booking from Lounis
+Booking.create!(
+  name: "Party",
+  service_id: burger.id,
+  user_id: lounis.id,
+  date: Date.today
+  )
+
+Booking.create!(
+  name: "Party",
+  service_id: pizza.id,
+  user_id: lounis.id,
+  date: Date.yesterday
+  )
+
+# Booking from Florian
+Booking.create!(
+  name: "Gun Convention",
+  service_id: schnitzel.id,
+  user_id: florian.id,
+  date: Date.yesterday
+)
+
+Booking.create!(
+  name: "Robot Party",
+  service_id: frog.id,
+  user_id: florian.id,
+  date: Date.yesterday
+)
+
+Booking.create!(
+  name: "Romantic Dinner",
+  service_id: cordon.id,
+  user_id: florian.id,
+  date: Date.yesterday - 20
+)
+
+Booking.create!(
+  name: "Lovely Lunch",
+  service_id: currywurst.id,
+  user_id: florian.id,
+  date: Date.yesterday - 40
+)
+
+puts "Created Bookings"
+puts "Seeding done! 🌱"
