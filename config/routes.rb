@@ -11,8 +11,12 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:destroy]
-  # Defines the root path route ("/")
-  # root "posts#index"
 
-  get "profile", to: "users#profile"
+  authenticated :user do
+    get "profile", to: "users#profile"
+  end
+
+  unauthenticated do
+    get "profile", to: "services#index" # Define the services route
+  end
 end
