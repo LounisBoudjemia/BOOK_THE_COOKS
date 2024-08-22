@@ -141,7 +141,8 @@ Booking.create!(
   service_id: schnitzel.id,
   user_id: florian.id,
   date: Date.yesterday,
-  address: "Leonhardtstraße 6, 14057 Berlin
+  address: "Leonhardtstraße 6, 14057 Berlin"
+)
 
 Booking.create!(
   name: "Robot Party",
