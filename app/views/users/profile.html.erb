@@ -1,62 +1,54 @@
 
 <div id="body">
-  <div id="username" class="d-flex justify-content-center">
-    <h1><%= @user.username %></h1>
+  <div id="header-profile" class="d-flex px-5 pb-4">
+    <h1>What's up with <%= @user.username %>?</h1>
   </div>
-  <div id="container-bookings-services" class="d-flex justify-content-center">
+  <div id="container-bookings-services" class="">
+
+    <!-- BOOKINGS -->
     <% if @my_bookings.length > 0 %>
-    <div id="my-bookings">
-      <div class="d-flex justify-content-center">
+    <div id="my-bookings" class="mx-5">
+      <div id="headline-my-bookings" class="d-flex px-4 mx-3">
           <h2>My Bookings</h2>
       </div>
-      <div id="my-bookings-list">
-        <ul>
+      <div id="my-bookings-list" class="container px-4 mb-5">
+        <div class="row row-cols-3">
           <% @my_bookings.each do |booking| %>
-            <li>
-              <div class="card m-3" style="width: 18rem;">
-                <div class="card-body">
-                  <div class="d-flex justify-content-center">
-                    <h5 class="card-title"><%= booking.name %></h5>
-                  </div>
-                  <div>
-                    <p class="card-text"><%= booking.date %></p>
-                    <% service = Service.find_by id: booking.service_id %>
-                    <p class="card-text"><%= service.name %></p>
-                    <%= link_to "Cancel Booking",
-                      booking_path(booking),
-                      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-                    %>
-                  </div>
-                </div>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <!-- BOOKINGS -->
-
-
-
-        <div id="my-bookings-cards">
-
-        </div>
-      </div>
-    <% end %>
-    <!-- SERVICES -->
-    <% if @my_services.length > 0 %>
-      <div id="my_services">
-        <div class="d-flex justify-content-center">
-          <h2>My Services</h2>
-        </div>
-        <div class="my-services-cards">
-          <% @my_services.each do |service| %>
-            <div class="card m-3" style="width: 18rem;">
+            <div class="card col mx-3 mb-3" style="width: 18rem;">
               <div class="card-body">
                 <div class="d-flex justify-content-center">
-                  <h5 class="card-title">
-                    <%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %>
-                  </h5>
+                  <h5 class="card-title"><%= booking.name %></h5>
+                </div>
+                <div>
+                  <p class="card-text"><%= booking.date %></p>
+                  <% service = Service.find_by id: booking.service_id %>
+                  <p class="card-text"><%= service.name %></p>
+                  <%= link_to "Cancel Booking",
+                    booking_path(booking), class: "btn btn-danger",
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                  %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <!-- SERVICES -->
+    <% if @my_bookings.length > 0 %>
+    <div id="my-services" class="mx-5">
+      <div id="headline-my-services" class="d-flex px-4 mx-3">
+          <h2>My Services</h2>
+      </div>
+      <div id="my-services-container" class="container px-4 mb-5">
+        <div id="service-cards" class="row row-cols-3">
+          <% @my_services.each do |service| %>
+            <div class="card col mx-3 mb-3" style="width: 18rem;">
+              <div class="card-body">
+                <div class="d-flex justify-content-center">
+                  <h5 class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></h5>
                 </div>
                 <div>
                   <p class="card-text"><%= service.category %></p>
@@ -67,32 +59,49 @@
               </div>
             </div>
           <% end %>
-        </div>
-      </div>
-    <% end %>
-    <!-- GIGS -->
-    <% if @my_gigs.length > 0 %>
-      <div id="my_gigs">
-        <div class="d-flex justify-content-center">
-          <h2>My Gigs</h2>
-        </div>
-        <div id="gig-cards">
-          <% @my_gigs.each do |gig| %>
-            <div class="card m-3" style="width: 18rem;">
-              <div class="card-body">
-                <div class="d-flex justify-content-center">
-                  <h5 class="card-title"><%= gig.name %></h5>
-                </div>
-                <div>
-                  <p class="card-text"><%= gig.date %></p>
-                  <% booked_by = User.find_by id: gig.user_id %>
-                  <p class="card-text">Booked by: <%= booked_by.username %></p>
-                </div>
+          <div id="card">
+            <div id="image-container">Image</div>
+            <div id="info-container">
+              <div id="title">
+                Title
+              </div>
+              <div id="description" class="d-flex justify-content-between">
+                <div id="info">Info</div>
+                <div id="rating">Rating</div>
               </div>
             </div>
-          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <!-- GIGS -->
+    <% if @my_gigs.length > 0 %>
+      <div id="my_gigs" class="mx-5">
+        <div id="headline-my-gigs" class="d-flex px-4 mx-3">
+          <h2>My Gigs</h2>
+        </div>
+        <div id="my-gigs-container" class="container px-4 mb-5">
+          <div id="gig-cards" class="row row-cols-3">
+            <% @my_gigs.each do |gig| %>
+              <div class="card col mx-3 mb-3" style="width: 18rem;">
+                <div class="card-body">
+                  <div class="d-flex justify-content-center">
+                    <h5 class="card-title"><%= gig.name %></h5>
+                  </div>
+                  <div>
+                    <p class="card-text"><%= gig.date %></p>
+                    <% booked_by = User.find_by id: gig.user_id %>
+                    <p class="card-text">Booked by: <%= booked_by.username %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
+
   </div>
 </div>
