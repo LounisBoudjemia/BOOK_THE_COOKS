@@ -9,17 +9,20 @@
           <% @services.each do |service| %>
 
           <div class="card">
-
-              <div class="card-img-top w-100" >  <%= cl_image_tag service.photos[0].key, crop: :fill %></div>
-
+               <% if service.photos.attached?%>
+                  <div class="card-img-top w-100" >  <%= cl_image_tag service.photos[0].key, crop: :fill %></div>
+              <% end %>
                 <div class="card-body w-100">
 
                     <div class="d-flex justify-content-between w-100">
                       <h5 class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></h5>
+                      <% if service.rating.present? %>
                       <div class="rating text-warning"><% service.rating.times do %>
                       <i class="fa-solid fa-star"></i>
+
                       <% end %>
                       </div>
+                      <% end %>
                     </div>
                     <div class="description d-flex justify-content-center w-100"><%= service.description %></div>
 
