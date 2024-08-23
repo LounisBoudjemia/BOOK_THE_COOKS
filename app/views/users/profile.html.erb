@@ -28,7 +28,7 @@
                 <div>
                   <p class="card-text"><%= booking.date %></p>
                   <% service = Service.find_by id: booking.service_id %>
-                  <p class="card-text"><%= service.name %></p>
+                  <p class="card-text"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></p>
                   <%= link_to "Cancel Booking",
                     booking_path(booking), class: "btn btn-danger",
                     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
@@ -40,27 +40,11 @@
         </div>
       </div>
     </div>
-
+    <%# d-none data-toggle-lists-target="myServices" %>
     <!-- SERVICES -->
     <div id="my-services" class="mx-5 d-none" data-toggle-lists-target="myServices">
       <div id="my-services-container" class="container px-4 mb-5">
-        <div id="service-cards" class="row row-cols-3">
-          <% @my_services.each do |service| %>
-            <div class="card col mx-3 mb-3" style="width: 18rem;">
-              <div class="card-body">
-                <div class="d-flex justify-content-center">
-                  <h5 class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></h5>
-                </div>
-                <div>
-                  <p class="card-text"><%= service.category %></p>
-                  <p class="card-text"><%= service.rating %></p>
-                  <% bookings_for_this_service = Booking.all.select { |booking| booking.service_id == service.id } %>
-                  <p class="card-text">Bookings: <%= bookings_for_this_service.length %></p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
+        <%= render "shared/service-cards" %>
       </div>
     </div>
 
@@ -76,6 +60,8 @@
                   </div>
                   <div>
                     <p class="card-text"><%= gig.date %></p>
+                    <% gigservice = Service.find_by id: gig.service_id %>
+                    <p class="card-text"><%= link_to gigservice.name, service_path(gigservice), style: "text-decoration: none;  color: black;" %></p>
                     <% booked_by = User.find_by id: gig.user_id %>
                     <p class="card-text">Booked by: <%= booked_by.username %></p>
                   </div>
