@@ -10,7 +10,13 @@
   align-items: center;
   justify-content: center;
   color:teal;
+  font-family: 'Courier New', Courier, monospace;
   text-wrap: wrap;
+  padding: 15px;
+
+  h1 {
+    font-family: "Montserrat", sans-serif;
+  }
 }
 .form-actions {
   display: flex;
