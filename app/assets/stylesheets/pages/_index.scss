@@ -22,7 +22,7 @@
   background-color: white;
   height: 350px;
   width: 300px;
-  margin: 24px;
+  margin: 20px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   color: black;
   border-radius: 10px;
@@ -31,13 +31,16 @@
   margin-top:10px;
 
   img{
-    height: 100%;
-    width: 100%;
-    object-fit: fill;
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
+
 }
+
+
 
 .card-title {
   text-decoration:none;
