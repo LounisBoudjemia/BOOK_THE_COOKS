@@ -14,22 +14,21 @@
       <% end  %>
     </div>
 
-    <div id="show-user">
-
-      <p>by <%= @user.first_name%> <%= @user.last_name%></p>
-    </div>
-
     <div id="show-details">
       <div id="details-container" class="d-flex justify-content-between">
         <div id="details-info">
-          <p>Category: <%= @service.category %></p>
-          <p><%= @service.description %></p>
+          <h2><%= @service.description %></h2>
+          <div id="show-user">
+            <h4>by <%= @user.first_name%> <%= @user.last_name%></h4>
+          </div>
+          <p><b>Category: <%= @service.category %></b></p>
           <p>Rating: <%= @service.rating %></p>
         </div>
         <div id="new-booking">
           <%= link_to "Book that Cook", new_service_booking_path(@service), class: "btn btn-success rounded-3" %>
         </div>
       </div>
+
       <div id="rating-form" class="mt-3 col-1 d-flex">
         <%= simple_form_for [@service] do |f| %>
           <%= f.input :rating, collection: (1..5).to_a, label: "Rate", input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"} } %>
