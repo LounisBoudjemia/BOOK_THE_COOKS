@@ -1,13 +1,22 @@
 
-<div id="body">
+<div id="body" class="" data-controller="toggle-lists">
   <div id="header-profile" class="d-flex px-5 pb-4">
     <h1>What's up with <%= @user.username %>?</h1>
   </div>
-  <div id="container-bookings-services" class="">
+  <div class="btn-group mx-5 mb-3" role="group" aria-label="Basic radio toggle button group">
+    <input data-action="change->toggle-lists#firemyBookings" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+    <label class="btn btn-outline-primary" for="btnradio1">My Bookings</label>
+
+    <input data-action="change->toggle-lists#firemyServices" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio2">My Services</label>
+
+    <input data-action="change->toggle-lists#firemyGigs" type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio3">My Gigs</label>
+  </div>
+  <div id="container-bookings-services">
 
     <!-- BOOKINGS -->
-    <% if @my_bookings.length > 0 %>
-    <div id="my-bookings" class="mx-5">
+    <div id="my-bookings" class="mx-5" data-toggle-lists-target="myBookings">
       <div id="headline-my-bookings" class="d-flex px-4 mx-3">
           <h2>My Bookings</h2>
       </div>
@@ -34,11 +43,9 @@
         </div>
       </div>
     </div>
-    <% end %>
 
     <!-- SERVICES -->
-    <% if @my_bookings.length > 0 %>
-    <div id="my-services" class="mx-5">
+    <div id="my-services" class="mx-5 d-none" data-toggle-lists-target="myServices">
       <div id="headline-my-services" class="d-flex px-4 mx-3">
           <h2>My Services</h2>
       </div>
@@ -62,11 +69,9 @@
         </div>
       </div>
     </div>
-    <% end %>
 
     <!-- GIGS -->
-    <% if @my_gigs.length > 0 %>
-      <div id="my_gigs" class="mx-5">
+      <div id="my_gigs" class="mx-5 d-none" data-toggle-lists-target="myGigs">
         <div id="headline-my-gigs" class="d-flex px-4 mx-3">
           <h2>My Gigs</h2>
         </div>
@@ -89,7 +94,6 @@
           </div>
         </div>
       </div>
-    <% end %>
 
   </div>
 </div>
