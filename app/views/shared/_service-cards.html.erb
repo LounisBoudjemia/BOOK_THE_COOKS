@@ -2,7 +2,7 @@
 
           <% @services.each do |service| %>
 
-          <div class="card">
+          <div id="show-container" class="card">
               <% if service.photos.attached?%>
                   <div class="card-img-top w-100" >  <%= cl_image_tag service.photos[0].key, crop: :fill %></div>
               <% end %>
