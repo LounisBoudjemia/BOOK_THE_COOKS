@@ -5,12 +5,12 @@
 
       <div class="card-container d-flex justify-content-between ">
         <%# <div class="card" style="width: 30rem;"> %>
-       <div class="cards">
+        <div class="cards">
 
           <% @services.each do |service| %>
 
           <div class="card">
-               <% if service.photos.attached?%>
+              <% if service.photos.attached?%>
                   <div class="card-img-top w-100" >  <%= cl_image_tag service.photos[0].key, crop: :fill %></div>
               <% end %>
                 <div class="card-body w-100">
@@ -19,7 +19,7 @@
                       <h5 class="card-title"><%= link_to service.name, service_path(service), style: "text-decoration: none;  color: black;" %></h5>
                       <% if service.rating.present? %>
                       <div class="rating text-warning"><% service.rating.times do %>
-                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star" style="color: black"></i>
 
                       <% end %>
 
@@ -27,7 +27,7 @@
                       <% end %>
                     </div>
 
-                 <div class="description w-100"><%= service.description %></div>
+                <div class="description w-100"><%= service.description %></div>
                 </div>
           </div>
           <% end %>
