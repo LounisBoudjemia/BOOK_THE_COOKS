@@ -1,5 +1,5 @@
 <div class="container-fluid mx-auto">
-<% title = ["Stuff your face, you fat fuck", "Eat up", "Hungry, yet?", "Too lazy to cook", "Why cook yourself?",
+<% title = ["Stuff your face, you fat fuck", "Ever heard of vegetables?", "Hungry, yet?", "Too lazy to cook, heh?", "Why cook yourself, am I right?",
 "Nobody will come to your neighborhood", "Most of our chefs are not serial killers","We can't promise nobody will try to cook you"]  %>
   <div class="title"><h1><%= title.sample  %></h1></div>
 
@@ -22,11 +22,12 @@
                       <i class="fa-solid fa-star"></i>
 
                       <% end %>
+
                       </div>
                       <% end %>
                     </div>
-                    <div class="description d-flex justify-content-center w-100"><%= service.description %></div>
 
+                 <div class="description w-100"><%= service.description %></div>
                 </div>
           </div>
           <% end %>

@@ -27,7 +27,7 @@
   color: black;
   border-radius: 10px;
   border: none;
-  font-family: montserrat;
+  font-family: "Montserrat", sans-serif;
   margin-top:10px;
 
   img{
@@ -45,29 +45,31 @@
 .card-title {
   text-decoration:none;
   color: black;
-  font-family: montserrat;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 14px;
 }
 
 .card-body {
   color: black;
-  font-family: montserrat;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 14px;
   border-radius: 10px;
 }
 
 .description {
+
   color: grey;
-  font-family: montserrat;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 12px;
 }
 
 .text-center {
+
   padding: 20px;
-  font-family: montserrat;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   margin-bottom: 10px;
 }
