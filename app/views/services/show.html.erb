@@ -1,12 +1,12 @@
 
 <div id="show-body">
 
-  <div id="show-container" class="container w-50 p-3">
+  <div id="show-container" class="container w-50 p-3 bg-light">
     <div id="show-header">
       <h1><%= @service.name %></h1>
     </div>
 
-    <div class="parent">
+    <div class="parent bg-light">
       <% if @service.photos.attached?%>
         <% @service.photos.each do |photo| %>
           <%= cl_image_tag photo.key, crop: :fill %>
@@ -15,7 +15,7 @@
     </div>
 
     <div id="show-details">
-      <div id="details-container" class="d-flex justify-content-between">
+      <div id="details-container" class="d-flex justify-content-between bg-light">
         <div id="details-info">
           <h2><%= @service.description %></h2>
           <div id="show-user">
