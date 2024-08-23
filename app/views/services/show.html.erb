@@ -9,7 +9,7 @@
     <div class="parent bg-light">
       <% if @service.photos.attached?%>
         <% @service.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, crop: :fill %>
+          <%= cl_image_tag photo.key, crop: :fill, id: "border-pictures" %>
         <% end %>
       <% end  %>
     </div>

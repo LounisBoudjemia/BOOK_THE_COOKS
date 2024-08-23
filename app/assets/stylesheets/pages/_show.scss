@@ -15,6 +15,17 @@
     }
   }
 
+  #border-pictures {
+    border-radius: 6px;
+  }
+
+  #show-container {
+    border-radius: 16px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+
   .card {
     display: flex;
     justify-content: center;
