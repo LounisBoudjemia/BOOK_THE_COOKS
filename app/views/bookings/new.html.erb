@@ -1,18 +1,35 @@
-<h1>Make a new Booking</h1>
+<div class="title"><h1>Make a new Booking</h1></div>
+<div class="container-new">
+  <div class="form-inputs">
 
-<div>
   <%= simple_form_for [@service, @booking] do |f| %>
-    <%= f.input :name, placeholder: "Write a name" %>
+  <div class="mb-3" id="name">
+    <%= f.input :name,
+      label: "name",
+      class: "form-control",
+      placeholder: "Write a name" %>
+  </div>
+
+  <div class="mb-3" id="date">
     <%= f.input :date, as: :string,
         input_html: {
           data: {
             controller: "datepicker"
           }
         } %>
-    <%= f.submit class: "btn btn-flat" %>
+  </div>
+  <div class="form-actions">
+      <%= f.submit class: "btn btn-primary",
+      id: "button-form" %>
+       <div id="links">
+        <%= link_to "Cancel", service_path(@service), class: "btn btn-secondary",
+      id: "button-form" %>
+       </div>
+
+</div>
   <% end %>
+
 </div>
 
-<div id="links">
-  <%= link_to "Cancel", service_path(@service), class: "btn btn-secondary" %>
+
 </div>
