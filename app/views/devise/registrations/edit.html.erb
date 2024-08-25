@@ -3,7 +3,7 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs w-50">
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,6 +21,22 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :first_name,
+                  required: true,
+                  input_html: { autocomplete: "first-name" },
+                  label: "first name",
+                  class: "form-control" %>
+    <%= f.input :last_name,
+                required: true,
+                input_html: { autocomplete: "last-name" },
+                label: "last name",
+                class: "form-control" %>
+    <%= f.input :username,
+                required: true,
+                input_html: { autocomplete: "username" },
+                label: "username",
+                class: "form-control" %>
+
   </div>
 
   <div class="form-actions">
