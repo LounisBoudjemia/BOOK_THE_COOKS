@@ -14,9 +14,11 @@ Rails.application.routes.draw do
 
   authenticated :user do
     get "profile", to: "users#profile"
+    get "account", to: "users#account"
   end
 
   unauthenticated do
     get "profile", to: "services#index" # Define the services route
+    get "account", to: "services#index" # Define the services route
   end
 end

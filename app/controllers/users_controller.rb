@@ -11,4 +11,10 @@ class UsersController < ApplicationController
     # select all bookings that belong to these services
     @my_gigs = Booking.where(service_id: @service_ids)
   end
+
+  def account
+    # select the current user
+    @user = current_user
+    @username = current_user.username
+  end
 end

@@ -1,0 +1,17 @@
+
+<div id="body" class="d-flex justify-content-center">
+  <div class="card">
+    <div id="header-profile" class="d-flex mx-5 my-3">
+      <h1>Account</h1>
+    </div>
+    <div id="profile-settings-details" class="mx-3 mb-3">
+      <p>Username:   <strong><%= @user.username %></strong></p>
+      <p>Email:      <strong><%= @user.email %></strong></p>
+      <p>First Name: <strong><%= @user.first_name %></strong></p>
+      <p>Last Name:  <strong><%= @user.last_name %></strong></p>
+    </div>
+    <div id="profile-settings-edit" class="mb-3">
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-secondary"%>
+    </div>
+  </div>
+</div>

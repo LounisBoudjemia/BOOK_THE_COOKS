@@ -33,6 +33,29 @@
                   label: "password confirmation",
                   class: "form-control"  %>
     </div>
+
+    <div class="mb-6" id="first-name">
+      <%= f.input :first_name,
+                  required: true,
+                  input_html: { autocomplete: "first-name" },
+                  label: "first name",
+                  class: "form-control" %>
+  </div>
+
+  <div class="mb-6" id="last-name">
+    <%= f.input :last_name,
+                required: true,
+                input_html: { autocomplete: "last-name" },
+                label: "last name",
+                class: "form-control" %>
+  </div>
+
+  <div class="mb-6" id="username">
+    <%= f.input :username,
+                required: true,
+                input_html: { autocomplete: "username" },
+                label: "username",
+                class: "form-control" %>
   </div>
 
   <div class="form-actions">
@@ -40,7 +63,7 @@
       <%= f.button :submit, "Sign up",
       class: "btn btn-primary",
       id: "button-form" %>
-     </div>
+    </div>
 </div>
   </div>
 
